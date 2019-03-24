@@ -1,0 +1,42 @@
+spring:
+    application:
+      name: spring-boot-admin
+server:
+  port: 8766
+---
+spring:
+  security:
+    user:
+      name: "admin"
+      password: "password"
+
+  ###################
+  # 邮件通知配置 此处暂时注释掉，如果要运行的话请先配置好，否此控制台会报错
+  ##################
+  mail:
+    host: smtp.qq.com
+    username: 774182819@qq.com
+    password: ujbmqzpfksnmbcbd
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+  boot:
+    admin:
+      notify:
+        mail:
+          to: fawen.he@riskeys.com
+          enabled: true
+          from: 774182819@qq.com
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
