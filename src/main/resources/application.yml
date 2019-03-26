@@ -14,23 +14,38 @@ spring:
   # 邮件通知配置 此处暂时注释掉，如果要运行的话请先配置好，否此控制台会报错
   ##################
   mail:
-    host: smtp.qq.com
-    username: 774182819@qq.com
-    password: ujbmqzpfksnmbcbd
+#    #邮箱服务
+#    host: smtp.qq.com
+#    #邮箱地址
+#    username: 774182819@qq.com
+#    #qq邮箱授权码，如果是其他邮箱一般为密码，具体看邮箱要求
+#    password: acfbhwgmmfrcbbbc
+    #邮箱服务
+    host: smtp.exmail.qq.com
+    #邮箱地址
+    username: service@anyi-tech.com
+    #qq邮箱授权码，如果是其他邮箱一般为密码，具体看邮箱要求
+    password: uPW7DDBkiN4CGmJx
     properties:
       mail:
         smtp:
+          # 设置是否需要认证，如果为true,那么用户名和密码就必须的，
+          #如果设置false，可以不设置用户名和密码，当然也得看你的对接的平台是否支持无密码进行访问的。
           auth: true
           starttls:
+            #STARTTLS[1]  是对纯文本通信协议的扩展。它提供一种方式将纯文本连接升级为加密连接（TLS或SSL），而不是另外使用一个端口作加密通信
+            #服务器需要tls验证
             enable: true
             required: true
   boot:
     admin:
       notify:
         mail:
+          # 发送给谁
           to: fawen.he@riskeys.com
           enabled: true
-          from: 774182819@qq.com
+          # 是谁发送出去的
+          from: service@anyi-tech.com
 
 management:
   endpoints:
